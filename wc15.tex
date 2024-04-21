@@ -55,16 +55,39 @@
     Copy and complete the 5-doku.
     \begin{solution}
       % Enter your solution here.
+      \begin{center}  
+        \begin{tabular}{|c|c|c|c|c|} \hline 
+          1&  2&  5&  3& 4\\ \hline 
+          3&  5&  2&  4& 1\\ \hline 
+          5&  1&  4&  2& 3\\ \hline 
+          4&  3&  1&  5& 2\\ \hline 
+          2&  4&  3&  1& 5\\ \hline
+        \end{tabular}
+      \end{center}  
     \end{solution}
     
   \part[4] Show that filling in the next row of an $n$-doku is equivalent to finding a matching in some 2n-vertex bipartite graph.
     \begin{solution}
       % Enter your solution here.
+      \begin{proof}
+        Consider a bipartite graph $G = (V,E)$ where there are two disjoint sets of vertices in $V$, $A = \{a_1, a_2, \ldots , a_n\}$ and $B = \{b_1, b_2, \ldots , a_n\}$ such that $|A|=|B|$. \\
+        For each $i \in \{1, 2, \ldots , n\}$, there is an edge between $a_i$ and $b_j$ if and only if the $i$th column of the $n$-doku is missing the number $j$. \\
+        Then, finding a matching in this bipartite graph is equivalent to filling in the next row of the $n$-doku. \\
+        Therefore, filling in the next row of an $n$-doku is equivalent to finding a matching in some 2n-vertex bipartite graph.
+      \end{proof}
     \end{solution}
     
   \part[4] Prove that a matching must exist in this bipartite graph and, consequently, that an incomplete $n$-doku can always be completed.
     \begin{solution}
       % Enter your solution here.
+      \begin{proof}
+        Applying Hall's Marriage Theorem to the bipartite graph defined in part(b): \\
+        Let $S \subseteq A$. We need to show that $|N(S)| \geq |S|$ for every subset $S$ of $A$. \\
+        Consider any subset $S$ of $A$. Each mumber in $S$ needs to be placed in a different position in $B$ to satisfy the rules. \\
+        Since teach position in $B$ can only be occupied by one number, the neighbourhood $N(S)$ contains atleast $|S|$ distict positions i.e. $|N(S)| \geq |S|$. \\
+        This satisfies the theorem implying that a perfect matching is guaranteed. This perfect matching corresponds to a valid completion of the $n$-doku. \\
+        Therefore, an incomplete $n$-doku can always be completed in this manner.
+      \end{proof}
     \end{solution}
   \end{parts}
 \end{questions}
